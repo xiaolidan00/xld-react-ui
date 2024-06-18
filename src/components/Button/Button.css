@@ -1,0 +1,24 @@
+.xld-button {
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  height: 32px;
+  border: solid 1px #ccc;
+  background-color: white;
+  padding: 0 10px;
+  color: gray;
+  border-radius: 4px;
+}
+.xld-button:hover {
+  filter: brightness(1.2);
+  transition: all 0.2 ease;
+}
+.xld-button.primary {
+  background-color: dodgerblue;
+  color: white;
+  border: solid 1px dodgerblue;
+}
+.xld-button.info {
+  color: green;
+  border: solid 1px green;
+}

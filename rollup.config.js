@@ -2,7 +2,7 @@ import packageJson from './package.json' assert { type: 'json' };
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
-
+import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
 
 export default [
@@ -12,7 +12,18 @@ export default [
       { file: packageJson.main, format: 'cjs', sourcemap: true },
       { file: packageJson.module, format: 'esm', sourcemap: true }
     ],
-    plugins: [resolve(), commonjs(), typescript({ tsconfig: './tsconfig.json' })]
+    plugins: [
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: './tsconfig.json' }),
+      postcss({
+        extensions: ['.css'],
+        minimize: true,
+        sourceMap: true,
+        modules: true,
+        inject: { insertAt: 'top' }
+      })
+    ]
   },
   {
     input: 'dist/esm/types/index.d.ts',
@@ -20,6 +31,7 @@ export default [
       file: packageJson.types,
       format: 'esm'
     },
-    plugins: [dts()]
+    plugins: [dts()],
+    external: [/\.css$/]
   }
 ];
