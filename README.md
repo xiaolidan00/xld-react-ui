@@ -1,3 +1,5 @@
+# 基础react-ui库测试
+
 # 安装typescript
 
 全局安装typescript
@@ -24,3 +26,25 @@ tsc --init
 
 github创建access token
 <https://github.com/settings/tokens>
+
+将token添加到.npmrc
+
+```yaml
+init-author-name=github用户名
+register=https://register.npmjs.org/
+@github用户名:register=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=__你的token__
+```
+
+发布到npm
+
+```bash
+npm publish
+```
+
+# 使用库
+
+```tsx
+import { Button } from 'xld-react-ui';
+<Button text="hello"></Button>
+```
