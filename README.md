@@ -48,3 +48,34 @@ npm publish
 import { Button } from 'xld-react-ui';
 <Button text="hello"></Button>
 ```
+
+# storyBook
+
+创建storyBook
+
+```bash
+sb init
+```
+
+在src/stories文件夹里面会自动生成一些示例组件
+
+运行或构建storyBook
+
+```bash
+ "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+```
+
+# jest测试组件
+
+安装babel库和jest库
+
+编写test测试用例
+
+注意jest中css解析
+
+```json
+"moduleNameMapper": {
+      "\\.css$": "jest-css-modules"
+    }
+```
