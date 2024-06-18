@@ -1,11 +1,11 @@
 import { FC, ButtonHTMLAttributes } from 'react';
-import './Button.css';
+import styles from './Button.module.css';
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   styleType?: 'primary' | 'info';
 }
 const Button: FC<ButtonProps> = ({ styleType, ...props }) => {
   return (
-    <button className={`xld-button ${styleType || ''}`} {...props}>
+    <button className={`${styles['xld-button']} ${styleType ? styles[styleType] : ''}`} {...props}>
       {props.children}
     </button>
   );
