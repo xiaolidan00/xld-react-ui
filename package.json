@@ -1,6 +1,6 @@
 {
   "name": "xld-react-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "type": "module",
   "main": "dist/cjs/index.js",
@@ -26,8 +26,11 @@
   "publishConfig": {
     "@xiaolidan00:register": "https://npm.pkg.github.com/xiaolidan"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react"
+  ],
+  "author": "xiaolidan00",
+  "repository": "https://github.com/xiaolidan00/xld-react-ui",
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-env": "^7.24.7",
