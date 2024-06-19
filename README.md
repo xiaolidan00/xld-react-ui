@@ -54,7 +54,8 @@ import { Button } from 'xld-react-ui';
 创建storyBook
 
 ```bash
-sb init
+pnpm add storybook -D
+pnpm exec sb init
 ```
 
 在src/stories文件夹里面会自动生成一些示例组件
