@@ -3,6 +3,7 @@ import { screen, fireEvent, render, cleanup } from '@testing-library/react';
 
 import Button from '../components/Button';
 import styles from '../components/Button/Button.module.css';
+import React from 'react';
 
 describe('Button', () => {
   afterEach(() => cleanup());

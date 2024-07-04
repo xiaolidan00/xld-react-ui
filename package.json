@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w",
+    "dev": "vite",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "jest --verbose",
@@ -53,17 +53,21 @@
     "@testing-library/react": "^16.0.0",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "jest-css-modules": "^2.1.0",
     "jest-environment-jsdom": "^29.7.0",
     "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "rollup": "^4.18.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-postcss": "^4.0.2",
     "storybook": "^8.1.10",
     "tslib": "^2.6.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "vite": "^5.3.3"
   },
   "peerDependencies": {
     "react": "^18.3.1"
