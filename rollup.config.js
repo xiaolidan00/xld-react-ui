@@ -4,7 +4,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
-
+const plugins = [resolve(), commonjs(), typescript({ tsconfig: './tsconfig.json' })];
 export default [
   {
     external: ['react', 'react-dom'],
@@ -15,9 +15,7 @@ export default [
       { file: packageJson.module, format: 'esm', sourcemap: true }
     ],
     plugins: [
-      resolve(),
-      commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
+      ...plugins,
       postcss({
         extensions: ['.css'],
         minimize: true,
@@ -33,7 +31,7 @@ export default [
       file: packageJson.types,
       format: 'esm'
     },
-    plugins: [dts()],
+    plugins: [...plugins, dts()],
     external: [/\.css$/]
   }
 ];
