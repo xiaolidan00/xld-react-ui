@@ -28,7 +28,7 @@ export default [
     ]
   },
   {
-    input: 'dist/esm/types/index.d.ts',
+    input: 'src/index.ts',
     ouput: {
       file: packageJson.types,
       format: 'esm'
