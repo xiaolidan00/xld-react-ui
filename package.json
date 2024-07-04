@@ -15,6 +15,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "jest --verbose",
+    "test:cover": "jest --coverage",
     "test:watch": "jest --watchAll --verbose"
   },
   "jest": {
