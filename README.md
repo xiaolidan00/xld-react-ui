@@ -286,17 +286,29 @@ describe('Button', () => {
 
 <https://typescript-eslint.nodejs.cn/getting-started/>
 
-- eslint
+```bash
+eslint --init
+```
+
 - globals 全局变量，window,document
 - @typescript-eslint/parser @typescript-eslint/eslint-plugin ts检测
 - eslint-plugin-react
 
 - 提交规范
 
+husky在git hooks提交前执行代码检查，测试之类的
+
+commitizen cz-conventional-changelog 命令行提示提交代码规范
+
+lint-staged 代码检查成功才staged
+
 ```bash
-pnpm add -D @commitlint/cli  @commitlint/config-conventional husky
+pnpm add -D husky commitizen cz-conventional-changelog
 
 pnpm husky init
 
 git commit -m <type>[optional scope]: <description>
+
+
+
 ```
