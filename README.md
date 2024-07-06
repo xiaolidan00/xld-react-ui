@@ -298,19 +298,66 @@ eslint.config.js
 - @eslint/js
 - typescript-eslint ts检测
 
+```js
+import globals from 'globals';
+import pluginJs from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js';
+import { fixupConfigRules } from '@eslint/compat';
+
+export default [
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...fixupConfigRules(pluginReactConfig),
+  {
+    files: ['src/**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+      '@typescript-eslint/no-explicit-any': 'off'
+    },
+    languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } }, globals: globals.browser }
+  }
+];
+
+```
+
 .eslintrc
 
 - @typescript-eslint/eslint-plugin
 - @typescript-eslint/parser
 - eslint-plugin-react
 
+```json
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "eslint:recommend",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "root": true
+}
+
+```
+
 - 提交规范
 
 husky在git hooks提交前执行代码检查，测试之类的
 
 commitizen cz-conventional-changelog 命令行提示提交代码规范
-
-lint-staged 代码检查成功才staged
 
 ```bash
 pnpm add -D husky commitizen cz-conventional-changelog conventional-changelog-cli
@@ -325,4 +372,21 @@ cz
 # 生成changlog
 conventional-changelog -p angular -i CHANGELOG.md -s
 
+```
+
+packages.json配置husky和cz
+
+```json
+{
+   "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+}
 ```
