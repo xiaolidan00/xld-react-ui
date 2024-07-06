@@ -264,3 +264,39 @@ describe('Button', () => {
     "test:cover": "jest --coverage",
     "test:watch": "jest --watchAll --verbose"
 ```
+
+# 9.代码规范
+
+- .prettierrc
+
+```json
+{
+  "eslintIntegration": true,
+  "stylelintIntegration": true,
+  "printWidth": 100,
+  "tabWidth": 2,
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "none"
+}
+
+```
+
+- 安装eslint
+
+<https://typescript-eslint.nodejs.cn/getting-started/>
+
+- eslint
+- globals 全局变量，window,document
+- @typescript-eslint/parser @typescript-eslint/eslint-plugin ts检测
+- eslint-plugin-react
+
+- 提交规范
+
+```bash
+pnpm add -D @commitlint/cli  @commitlint/config-conventional husky
+
+pnpm husky init
+
+git commit -m <type>[optional scope]: <description>
+```
