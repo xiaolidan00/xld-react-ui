@@ -14,6 +14,6 @@ export default [
       'react/react-in-jsx-scope': 'off',
       '@typescript-eslint/no-explicit-any': 'off'
     },
-    languageOptions: { parserOptions: { ecmaFeatures: { jsx: true }, globals: globals.browser } }
+    languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } }, globals: globals.browser }
   }
 ];

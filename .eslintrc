@@ -10,14 +10,13 @@
       "jsx": true
     }
   },
-
-  "ignorePatterns": ["*.md"],
   "extends": [
     "eslint:recommend",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended"
   ],
-  "plugins": ["react", "@typescript-eslint"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
   "root": true
 }
