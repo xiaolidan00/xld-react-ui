@@ -4,7 +4,15 @@ import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
-const plugins = [resolve(), commonjs(), typescript({ tsconfig: './tsconfig.json' })];
+import babel from '@rollup/plugin-babel';
+const plugins = [
+  resolve(),
+  commonjs(),
+  babel({
+    exclude: 'node_modules/**'
+  }),
+  typescript({ tsconfig: './tsconfig.json' })
+];
 export default [
   {
     //外部引入依赖
