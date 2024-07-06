@@ -11,6 +11,7 @@
     }
   },
   "extends": [
+    "prettier",
     "eslint:recommend",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",

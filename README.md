@@ -5,8 +5,7 @@
 - 安装typescript
 
 ```bash
-tslib
-typescript
+tslib typescript
 ```
 
 - 初始化ts项目，生成tsconfig.json
@@ -42,13 +41,13 @@ vite
 # 3.修改package.json导出文件
 
 ```json
-"type": "module",
+{
+  "type": "module",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"]
+}
 ```
 
 # 4.配置rollup.congfig.js
@@ -96,7 +95,6 @@ vite
       format: 'esm'
     },
     plugins: [dts()],
-    external: [/\.css$/]
   }
 ```
 
@@ -124,7 +122,7 @@ npm publish
 
 ```tsx
 import { Button } from 'xld-react-ui';
-<Button text="hello"></Button>
+<Button text="hello"></Button>;
 ```
 
 # 7.storyBook
@@ -148,16 +146,18 @@ pnpm exec sb init
 init会自动添加一下依赖
 
 ```json
- "storybook": "^8.1.10",
-"@chromatic-com/storybook": "1.5.0",
-"@storybook/addon-essentials": "^8.1.10",
-    "@storybook/addon-interactions": "^8.1.10",
-    "@storybook/addon-links": "^8.1.10",
-    "@storybook/addon-onboarding": "^8.1.10",
-    "@storybook/blocks": "^8.1.10",
-    "@storybook/react": "^8.1.10",
-    "@storybook/react-vite": "^8.1.10",
-    "@storybook/test": "^8.1.10",
+{
+  "storybook": "^8.1.10",
+  "@chromatic-com/storybook": "1.5.0",
+  "@storybook/addon-essentials": "^8.1.10",
+  "@storybook/addon-interactions": "^8.1.10",
+  "@storybook/addon-links": "^8.1.10",
+  "@storybook/addon-onboarding": "^8.1.10",
+  "@storybook/blocks": "^8.1.10",
+  "@storybook/react": "^8.1.10",
+  "@storybook/react-vite": "^8.1.10",
+  "@storybook/test": "^8.1.10"
+}
 ```
 
 # 8.jest测试组件
@@ -188,7 +188,6 @@ init会自动添加一下依赖
     "@babel/preset-typescript"
   ]
 }
-
 ```
 
 - 安装jest库
@@ -243,7 +242,6 @@ describe('Button', () => {
     expect(button).toHaveClass(styles.primary || 'primary');
   });
 });
-
 ```
 
 - package.json配置jest,jest中css解析用jest-css-modules
@@ -279,7 +277,6 @@ describe('Button', () => {
   "semi": true,
   "trailingComma": "none"
 }
-
 ```
 
 - 安装eslint
@@ -292,18 +289,18 @@ eslint --init
 
 eslint.config.js
 
-- globals 全局变量，window,document
-- eslint-plugin-react
-- @eslint/compat 兼容性
-- @eslint/js
-- typescript-eslint ts检测
+- `globals` 全局变量，如window,document
+- `eslint-plugin-react` react配置
+- `@eslint/compat` es版本兼容性
+- `@eslint/js`
+- `typescript-eslint` ts检测
 
 ```js
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js';
 import { fixupConfigRules } from '@eslint/compat';
+import pluginJs from '@eslint/js';
+import pluginReactConfig from 'eslint-plugin-react/configs/recommended.js';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 export default [
   pluginJs.configs.recommended,
@@ -318,7 +315,6 @@ export default [
     languageOptions: { parserOptions: { ecmaFeatures: { jsx: true } }, globals: globals.browser }
   }
 ];
-
 ```
 
 .eslintrc
@@ -350,7 +346,6 @@ export default [
   "parser": "@typescript-eslint/parser",
   "root": true
 }
-
 ```
 
 - 提交规范
@@ -378,7 +373,7 @@ packages.json配置husky和cz
 
 ```json
 {
-   "husky": {
+  "husky": {
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
     }
@@ -387,7 +382,7 @@ packages.json配置husky和cz
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  },
+  }
 }
 ```
 

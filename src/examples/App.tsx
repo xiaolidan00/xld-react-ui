@@ -1,6 +1,8 @@
-import type { FC } from 'react';
 import * as Comps from '../index';
+
+import type { FC } from 'react';
 import React from 'react';
+
 console.log(Comps);
 const App: FC = () => {
   const list: any = [];
