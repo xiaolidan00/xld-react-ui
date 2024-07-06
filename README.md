@@ -390,3 +390,17 @@ packages.json配置husky和cz
   },
 }
 ```
+
+lint-staged.config.js
+
+```js
+export default {
+  'src/**/*.{ts,tsx,js,jsx}': ['pnpm lint', 'pnpm test', 'git add .']
+};
+```
+
+commitlint
+
+```bash
+pnpm add -D @commitlint/cli @commitlint/config-conventional
+```
