@@ -1,9 +1,12 @@
 {
-  "singleQuote": true,
   "jsxSingleQuote": false,
-  "trailingComma": "all",
+  "eslintIntegration": true,
+  "stylelintIntegration": true,
   "printWidth": 100,
-  "proseWrap": "never",
+  "tabWidth": 2,
+  "singleQuote": true,
+  "semi": true,
+  "trailingComma": "none",
   "importOrder": ["^(react|react-dom)$", "^([a-z]|@[a-z])", "", ".*"],
   "plugins": ["@ianvs/prettier-plugin-sort-imports"],
   "overrides": [
