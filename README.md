@@ -290,8 +290,18 @@ describe('Button', () => {
 eslint --init
 ```
 
+eslint.config.js
+
 - globals 全局变量，window,document
-- @typescript-eslint/parser @typescript-eslint/eslint-plugin ts检测
+- eslint-plugin-react
+- @eslint/compat 兼容性
+- @eslint/js
+- typescript-eslint ts检测
+
+.eslintrc
+
+- @typescript-eslint/eslint-plugin
+- @typescript-eslint/parser
 - eslint-plugin-react
 
 - 提交规范
@@ -303,12 +313,16 @@ commitizen cz-conventional-changelog 命令行提示提交代码规范
 lint-staged 代码检查成功才staged
 
 ```bash
-pnpm add -D husky commitizen cz-conventional-changelog
+pnpm add -D husky commitizen cz-conventional-changelog conventional-changelog-cli
 
 pnpm husky init
 
 git commit -m <type>[optional scope]: <description>
 
+# 交互式提交代码
+cz
 
+# 生成changlog
+conventional-changelog -p angular -i CHANGELOG.md -s
 
 ```
